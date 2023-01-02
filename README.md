@@ -1,3 +1,6 @@
+# Resource 
+- https://github.com/jmstechhome8/web_login_automation
+
 # Docker Login with CLI 
 - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 243302161856.dkr.ecr.us-east-2.amazonaws.com
 

@@ -1,0 +1,14 @@
+name: Issues Workflow
+on: 
+    issues:
+        types: [opened, edited, milestoned, demilestoned, closed, reopened]
+jobs:
+    issue-run:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            
+            - name: Print the Issue
+              run: echo ${{ github.event.issue }}
+
+              

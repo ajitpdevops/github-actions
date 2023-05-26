@@ -3,11 +3,11 @@ on: [push, workflow_dispatch]
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: node-app
         steps:
             - uses: actions/checkout@v3
-
-            - name: CD to workdir
-              run: cd node-app
 
             - name: Print Current Working Directory
               run: pwd

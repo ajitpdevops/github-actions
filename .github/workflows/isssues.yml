@@ -9,5 +9,19 @@ jobs:
             - uses: actions/checkout@v2
             
             - name: Print the Issue
-              run: echo ${{ toJson(github.event.issue) }}
+              run: |
+                echo "Issue Information"
+                echo "Issue ${{ github.event_name }}"
+                echo "Action ${{ github.event.action }}"
+                echo "Issue Number ${{ github.event.issue.number }}"
+                echo "Issue Title ${{ github.event.issue.title }}"
+                echo "Issue Body ${{ github.event.issue.body }}"
+                echo "Issue Milestone ${{ github.event.issue.milestone }}"
+                echo "Issue Assignees ${{ github.event.issue.assignees }}"
+                echo "Issue state ${{ github.event.issue.state }}"
+
+            - name: Print issue in JSON format
+              run: |
+                echo "Issue Information in JSON format"
+                echo "${{ toJson(github.event.issue) }}"
 

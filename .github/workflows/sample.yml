@@ -50,5 +50,8 @@ jobs:
       - name: terraform version
         run: terraform -version
       
-      - name: node version
+      - name: node version 
+        run: node -v
+        
+      - name: npm version
         run: npm -v

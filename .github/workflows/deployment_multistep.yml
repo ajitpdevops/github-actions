@@ -1,4 +1,4 @@
-name: CD
+name: CD Multistep
 on: [push, workflow_dispatch]
 jobs:
     lint:
@@ -39,14 +39,6 @@ jobs:
                 working-directory: node-app
         steps:
             - uses: actions/checkout@v3
-
-            - name: Print Current Working Directory
-              run: pwd
-
-            - name: Setups node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 18.x
 
             - name: Build code
               run: npm run build

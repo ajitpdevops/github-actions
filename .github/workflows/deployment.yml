@@ -1,4 +1,4 @@
-name: CD
+name: CD Single Step
 on: [push, workflow_dispatch]
 jobs:
     build:

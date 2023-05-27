@@ -6,13 +6,9 @@ on:
             - main # main branch
             - release-* # release-1.0.0, release-1.0.1, etc.
             - feature/** # feature/dev/new-feature, feature/dev/another-feature, etc.
-        branches-ignore:
-            - dev-* # ignore the dev branch
     push:
-        branches:
-            - main # main branch
-            - release-* # release-1.0.0, release-1.0.1, etc.
-            - feature/** # feature/dev/new-feature, feature/dev/another-feature, etc.
+        branches-ignore:
+            - test* # ignore the branches start with test
         paths:
             - 'infra/**' # any file in the infra directory
             - '!.github/workflows/**' # ignore any changes to the workflows directory

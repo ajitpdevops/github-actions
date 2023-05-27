@@ -1,0 +1,30 @@
+name: Github Event Deep Dive
+on:
+    pull_request:
+        types: [opened, synchronize, reopened, ready_for_review]
+        branches:
+            - main # main branch
+            - release-* # release-1.0.0, release-1.0.1, etc.
+            - feature/** # feature/dev/new-feature, feature/dev/another-feature, etc.
+        branches-ignore:
+            - dev-* # ignore the dev branch
+    push:
+        branches:
+            - main # main branch
+            - release-* # release-1.0.0, release-1.0.1, etc.
+            - feature/** # feature/dev/new-feature, feature/dev/another-feature, etc.
+        paths:
+            - 'infra/**' # any file in the infra directory
+            - '!.github/workflows/**' # ignore any changes to the workflows directory
+    workflow_dispatch:
+    
+jobs:
+    event-dive:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Dump GitHub context
+              env:
+                  GITHUB_CONTEXT: ${{ toJson(github) }}
+              run: echo "$GITHUB_CONTEXT"

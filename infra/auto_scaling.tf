@@ -23,7 +23,6 @@ resource "aws_appautoscaling_policy" "up" {
       scaling_adjustment          = 1
     }
   }
-
   depends_on = [aws_appautoscaling_target.target]
 }
 
